@@ -18,6 +18,17 @@ function windowResized(){
 const palette = createPalette('https://coolors.co/palette/eddcd2-fff1e6-fde2e4-fad2e1-c5dedd-dbe7e4-f0efeb-d6e2e9-bcd4e6-99c1de');
 let canvas;
 
+class Tile{
+  constructor(x,y,size){
+    this.x = x
+    this.y = y
+    this.size = size
+  }
+
+  show(){
+    rect(this.x,this.y,this.size)
+  }
+}
 
 function setup() {
   canvas = createCanvas(windowWidth,windowHeight)
@@ -26,9 +37,13 @@ function setup() {
   canvas.style('z-index','-1') // behind html elements
 }
 
+let tile = new Tile(100,100,100)
+
 function draw() {
   background(palette[3]);
+  tile.show()
 }
 
 
-
+// create an array of xy coordinates 
+// map the xy coordinates to create array of tile objects
