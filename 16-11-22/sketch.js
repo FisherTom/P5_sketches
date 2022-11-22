@@ -29,26 +29,23 @@ class Tile{
     this.size = size
   }
 
-  show(){
+  show(t){
+    fill(500*noise(this.x/noiseDiv,this.y/noiseDiv,t),140,140)
     circle(this.x,this.y,this.size)
   }
 
   noiseTranslate(j,t){
-    this.x = this.xorig+ j * cos(noise(0,this.y/noiseDiv,t))
-    this.y = this.yorig+ j * sin(noise(this.x/noiseDiv,0,t))
-  }
-
-  mouseTranslate(){
-  
+    this.x = this.xorig+ j * cos(2*noise(0,this.y/noiseDiv,t))
+    this.y = this.yorig+ j * sin(2*noise(this.x/noiseDiv,0,t))
   }
 }
 
 ////////global variables////////
-let border = 100
-let res = 100; //canvas division
+let border = -200
+let res = 60; //canvas division
 let tiles = [];
 let t =1;
-let noiseDiv = 500;
+let noiseDiv = 2000;
 ///////////////////////////////
 
 function setup() {
@@ -56,16 +53,20 @@ function setup() {
   canvas.position(0,0)
   windowResized()
   canvas.style('z-index','-1') // behind html elements
-  //noStroke()
+  noStroke()
   fill(palette[9])
+  colorMode(HSB)
+  blendMode(DIFFERENCE)
+  background(0);
 }
 
 function draw() {
-  translate(-350,-180)
-  background(palette[1]);
-  tiles.map(tile => tile.size = 100*noise(tile.x/500,tile.y/100,t))
+  translate(-200,-300)
+  clear()
+  //background(0);
+  tiles.map(tile => tile.size = 120*noise(tile.x/noiseDiv,tile.y/noiseDiv,t))
   tiles.map(tile => tile.noiseTranslate(400,t))
-  tiles.map(tile => tile.show())
+  tiles.map(tile => tile.show(t))
   t+=0.005
 }
 
@@ -78,5 +79,3 @@ function createTiles(){
 }
 
 
-// create an array of xy coordinates 
-// map the xy coordinates to create array of tile objects
