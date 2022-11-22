@@ -30,7 +30,7 @@ class Tile{
   }
 
   show(t){
-    fill(500*noise(this.x/noiseDiv,this.y/noiseDiv,t),140,140)
+    fill(450*noise(this.x/noiseDiv,this.y/noiseDiv,t),140,140)
     circle(this.x,this.y,this.size)
   }
 
@@ -42,7 +42,7 @@ class Tile{
 
 ////////global variables////////
 let border = -200
-let res = 60; //canvas division
+let res = 90; //canvas division
 let tiles = [];
 let t =1;
 let noiseDiv = 2000;
@@ -64,7 +64,7 @@ function draw() {
   translate(-200,-300)
   clear()
   //background(0);
-  tiles.map(tile => tile.size = 120*noise(tile.x/noiseDiv,tile.y/noiseDiv,t))
+  tiles.map(tile => tile.size = 150*noise(tile.x/noiseDiv,tile.y/noiseDiv,t))
   tiles.map(tile => tile.noiseTranslate(400,t))
   tiles.map(tile => tile.show(t))
   t+=0.005
