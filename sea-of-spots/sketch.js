@@ -21,12 +21,12 @@ const palette = createPalette('https://coolors.co/palette/eddcd2-fff1e6-fde2e4-f
 let canvas;
 
 class Tile{
-  constructor(x,y,size = res){
+  constructor(x,y){
     this.x = x
     this.y = y
     this.xorig = x
     this.yorig = y
-    this.size = size
+    this.size = res
   }
 
   show(t){
@@ -67,15 +67,21 @@ function draw() {
   tiles.map(tile => tile.size = 150*noise(tile.x/noiseDiv,tile.y/noiseDiv,t))
   tiles.map(tile => tile.noiseTranslate(400,t))
   tiles.map(tile => tile.show(t))
+  
   t+=0.005
 }
 
 function createTiles(){
+  let xnum = 0
+  let ynum = 0
   for(let y=border; y<height-border; y+=res){
     for(let x=border; x<width-border; x+=res){
       tiles.push(new Tile(x,y))
+     
     }
+   
   }
+  
 }
 
 
