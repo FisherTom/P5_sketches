@@ -5,11 +5,10 @@ html, body {
   flex-direction: column;
   align-items: center;
   background-color: whitesmoke;
-  
 }
 
 h1{
-  margin: 5px;
+  margin: 0px;
   flex: 1;
 }
 
@@ -25,7 +24,6 @@ h1{
   flex-direction: row;
   max-width: 40em;
   flex-wrap: wrap;
-  
 }
 
 .imgcontainer{
@@ -43,12 +41,12 @@ h1{
 #flexitemtext{
   margin-top: 5px;
   margin-right: 20px;
-  flex: 2.1;
+  flex: 2.3;
 }
 
 .imgcontainer > img{
   margin-top: 1em;
- width: 13em;
+ width: 12em;
  height: auto;
 }
 
