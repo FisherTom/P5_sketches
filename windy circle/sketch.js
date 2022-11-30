@@ -5,8 +5,15 @@ circleRad = 250
 div = 0.008    //twoPI/ div = number of lines in the circle
 lengths = []
 
+function windowResized(){
+  resizeCanvas(windowWidth,windowHeight)
+}
+
 function setup() {
-createCanvas(1000,1000,SVG);
+canvas = createCanvas(windowWidth,windowHeight)
+canvas.position(0,0)
+windowResized()
+canvas.style('z-index','-1') // behind html elements
 
 strokeWeight(0.5)
 noFill()
@@ -42,12 +49,4 @@ function noiseLine(xstart,ystart,segments = 100,segmentDistance = 2){
     vertex(x,y)
   }
   endShape()
-}
-
-function keyTyped() {
-  if (key === 's') {
-save("mySVG.svg"); // give file name
-print("saved svg");
-noLoop(); // we just want to export once
-}
 }

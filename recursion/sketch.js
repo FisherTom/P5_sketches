@@ -1,5 +1,12 @@
+function windowResized(){
+  resizeCanvas(windowWidth,windowHeight)
+}
+
 function setup() {
-  createCanvas(1000, 1000, SVG);
+  canvas = createCanvas(windowWidth,windowHeight)
+  canvas.position(0,0)
+  windowResized()
+  canvas.style('z-index','-1') // behind html elements
   strokeWeight(1);
   stroke(255); 
   noFill();
@@ -19,7 +26,7 @@ function branch(len)
 {
   push()
   if(len>2){
-    strokeWeight(map(len,2,100,0.5,6))
+    strokeWeight(map(len,2,100,0.5,8))
 
   line(0,0,0,-len)
   translate(0,-len)
@@ -35,10 +42,3 @@ pop()
 }
 noLoop()
 
-function keyTyped() {
-    if (key === 's') {
-  save("mySVG.svg"); // give file name
-  print("saved svg");
-  noLoop(); // we just want to export once
-  }
-}
