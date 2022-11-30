@@ -42,7 +42,7 @@ class Tile{
 
 ////////global variables////////
 let border = -200
-let res = 90; //canvas division
+let res = 80; //canvas division
 let tiles = [];
 let t =1;
 let noiseDiv = 2000;
@@ -56,13 +56,13 @@ function setup() {
   noStroke()
   fill(palette[9])
   colorMode(HSB)
-  blendMode(DIFFERENCE)
+  //blendMode(DIFFERENCE)
   background(0);
 }
 
 function draw() {
   translate(-200,-300)
-  clear()
+  //clear()
   //background(0);
   tiles.map(tile => tile.size = 150*noise(tile.x/noiseDiv,tile.y/noiseDiv,t))
   tiles.map(tile => tile.noiseTranslate(400,t))
