@@ -45,7 +45,7 @@ function draw() {
 class Ball {
   constructor(t=0) {
     this.position = new createVector(random(0+margin,width-margin), random(0+margin, height-margin));
-    this.velocity = new createVector(random(-5,8), random(-2,12));
+    this.velocity = new createVector(random(-5,8), random(-2,6));
     this.dia = random(50,200)
     this.t = t
   }
@@ -67,7 +67,7 @@ class Ball {
       this.velocity.y = this.velocity.y * -1;
     }
     
-    this.dia = noise(this.position.x/400, this.position.y/400,this.t)*600 - 150
+    this.dia = noise(this.position.x/300, this.position.y/300,this.t)*600 - 150
     this.t+=0.001
   }
 
