@@ -63,7 +63,7 @@ function setup() {
 function draw() {
   translate(-200,-300)
   //clear()
-  //background(0);
+  background(100,0,255,0.05);
   tiles.map(tile => tile.size = 150*noise(tile.x/noiseDiv,tile.y/noiseDiv,t))
   tiles.map(tile => tile.noiseTranslate(400,t))
   tiles.map(tile => tile.show(t))

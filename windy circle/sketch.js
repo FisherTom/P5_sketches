@@ -1,9 +1,9 @@
 
 const noff = 300    //xy pos/ noff = position in noise space
 let t = 0
-circleRad = 250
-div = 0.01    //twoPI/ div = number of lines in the circle
-lengths = []
+let circleRad = 250
+let div = 0.017    //twoPI/ div = number of lines in the circle
+let lengths = []
 
 function windowResized(){
   resizeCanvas(windowWidth,windowHeight)
