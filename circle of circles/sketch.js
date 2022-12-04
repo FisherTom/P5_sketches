@@ -1,4 +1,4 @@
-const angles = 0.015;
+const angles = 0.01;
 let t=0
 
 function windowResized(){
@@ -22,11 +22,11 @@ function draw() {
   background(240,255,255);
   for(let a = 0; a < TWO_PI; a += angles)
   {
-    let x = spacx+cos(a)*200 
-    let y = spacy+sin(a)*200 
+    let x = spacx+cos(a)*330 
+    let y = spacy+sin(a)*330 
     let xoff = cos(a+t)/2 + 20 ;
     let yoff = sin(a+t)/2 + 20 ; // try tan - sin
-    let r = map(noise(xoff,yoff,t),0,1,-500,500);
+    let r = map(noise(xoff,yoff,t),0,1,-800,800);
     circle(x,y,r);
   }
  t += 0.005

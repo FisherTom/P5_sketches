@@ -12,6 +12,11 @@ h1{
   margin: 0.25em;
 }
 
+h2{
+  font-weight: lighter;
+  font-size: x-large;
+}
+
 header{
 display: flex;
 flex-direction: column;
@@ -20,35 +25,42 @@ text-align: center;
 }
 
 main{
+  flex: 1;
   display: flex;
-  justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
   background-color: rgb(255, 255, 255);
-  margin: 1em;
-  width: fit-content;
-  border-radius: 1em;
-  max-width: 38em;
+  margin: 0.5em;
+  border-radius: 2em;
+  width: 75%;
+  box-shadow: 1px 1px 4px 0px #535353;
+}
+
+main:hover{
+  box-shadow: 3px 3px 8px 0px #535353;
+}
+
+.sketch-description{
+margin: 1em;
+flex: 1;
+min-width: 150px;
 }
 
 #page-intro{
 margin: 2em;
 }
 
-main>img{
-  width: 14.5em;
+.gallery-img{
+  width: 20em;
   /* margin: 3em; */
 }
 
 #hero-img{
 width: 23em;
 border-radius: 1em;
-/* margin: 3em; */
+margin: 1em;
 }
 
-#gallery{
-  
-}
 #gallery>img{
   margin: 2em;
 }
@@ -65,13 +77,31 @@ border-radius: 1em;
   color: black
 }
 
-.sketch-menu-item, a:hover {
+.sketch-menu-item{
   text-decoration: none;
   color: rgb(255, 0, 221)
 }
 
 #social-links>img{
   width: 3em;
- margin: 2em;
-  
+  margin: 2em;
+}
+
+.sketch-link {
+  padding: 8px;
+  padding-right: 20px;
+  padding-left: 20px;
+  border-radius: 20px;
+
+  color: #ffffff;
+  font-size: 14px;
+  background: #000000;
+  text-decoration: none;
+  margin-top: 20px;
+}
+
+.sketch-link:hover {
+  background: #ff14ff;
+  border-color: #ff14ff ;
+  text-decoration: none;
 }
