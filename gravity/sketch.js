@@ -17,7 +17,7 @@ function windowResized(){
  // colour palette from coolors.co URL
 const palette = createPalette('https://coolors.co/palette/eddcd2-fff1e6-fde2e4-fad2e1-c5dedd-dbe7e4-f0efeb-d6e2e9-bcd4e6-99c1de');
 let canvas;
-let numberOfBalls = 80
+let numberOfBalls = 300
 
 let balls = []
 
@@ -26,9 +26,11 @@ function setup() {
   canvas.position(0,0)
   windowResized()
   canvas.style('z-index','-1') // behind html elements
-  background(palette[3])
+ 
   fill(palette[9])
   stroke(palette[1])
+  colorMode(HSB,100)
+
 
     /////////////////create Balls/////////////////
   for(let i=0; i<= numberOfBalls; i++){
@@ -41,7 +43,7 @@ function setup() {
 let margin = 200
 
 function draw() {
-  background(200,160,200,10);
+  background(100,0,100,5);
   for(ball in balls){
     balls[ball].update(); 
     balls[ball].display();
@@ -53,7 +55,7 @@ class Ball {
     this.pos = createVector(x,y);
     this.velocity = createVector();
     this.acc = createVector()
-    this.acc.setMag(0.8) 
+    this.acc.setMag(0.1) 
     this.dia = d
   }
   
@@ -62,7 +64,7 @@ class Ball {
     this.acc = p5.Vector.sub(mouse, this.pos) // acceleration = mouse - position
     this.acc.setMag(0.1)          // limit acceleration changes responsiveness
     this.velocity.add(this.acc)           //velocity = velocity + acceleration
-    this.velocity.limit(15)               // limmit max velocity
+    this.velocity.limit(6)               // limmit max velocity
     this.pos.add(this.velocity);    // position = position +velocity
 
     
