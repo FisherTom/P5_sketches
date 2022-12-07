@@ -30,7 +30,7 @@ class Tile{
   }
 
   show(t){
-    fill(450*noise(this.x/noiseDiv,this.y/noiseDiv,t),140,140)
+    fill(450*noise(this.x/noiseDiv,this.y/noiseDiv,t),60,140)
     circle(this.x,this.y,this.size)
   }
 
@@ -56,8 +56,8 @@ function setup() {
   noStroke()
   fill(palette[9])
   colorMode(HSB)
-  //blendMode(DIFFERENCE)
-  background(0);
+  //blendMode(MULTIPLY)
+  //background(0);
 }
 
 function draw() {

@@ -10,11 +10,13 @@ html, body {
 h1{
   font-size: 4em;
   margin: 0.25em;
+  font-weight: normal;
 }
 
 h2{
   font-weight: lighter;
   font-size: x-large;
+  margin-bottom: 2em;
 }
 
 header{
