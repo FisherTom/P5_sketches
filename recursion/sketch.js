@@ -1,3 +1,6 @@
+
+
+
 function windowResized(){
   resizeCanvas(windowWidth,windowHeight)
 }
@@ -7,20 +10,24 @@ function setup() {
   canvas.position(0,0)
   windowResized()
   canvas.style('z-index','-1') // behind html elements
+
   strokeWeight(1);
   stroke(255); 
   noFill();
   background(0);
   angleMode(DEGREES)
-  noLoop()
+  
 }
+
+
+
 
 function draw() {
  
   translate(width/2,height)
   branch(200)
+  noloop()
 }
-    
 
 function branch(len)
 {
@@ -40,5 +47,5 @@ function branch(len)
 }
 pop()
 }
-noLoop()
+
 

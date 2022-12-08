@@ -30,7 +30,8 @@ class Tile{
   }
 
   show(t){
-    fill(450*noise(this.x/noiseDiv,this.y/noiseDiv,t),60,140)
+    let n = noise(this.x/noiseDiv,this.y/noiseDiv,t)
+    fill(map(n,0.2,0.8,0,120),50,100)
     circle(this.x,this.y,this.size)
   }
 
@@ -42,33 +43,36 @@ class Tile{
 
 ////////global variables////////
 let border = -200
-let res = 80; //canvas division
+let res = 180; //canvas division
 let tiles = [];
 let t =1;
-let noiseDiv = 2000;
+let noiseDiv = 1200;
 ///////////////////////////////
 
 function setup() {
   canvas = createCanvas(windowWidth,windowHeight)
   canvas.position(0,0)
-  windowResized()
   canvas.style('z-index','-1') // behind html elements
-  noStroke()
+  windowResized()
+  
+  //noStroke()
   fill(palette[9])
-  colorMode(HSB)
+  colorMode(HSB,100)
   //blendMode(MULTIPLY)
   //background(0);
+  
 }
 
 function draw() {
   translate(-200,-300)
   //clear()
-  background(100,0,255,0.05);
-  tiles.map(tile => tile.size = 150*noise(tile.x/noiseDiv,tile.y/noiseDiv,t))
+  background(100,0,255,0.);
+  
+  tiles.map(tile => tile.size = 320*noise(tile.x/noiseDiv,tile.y/noiseDiv,t)-50)
   tiles.map(tile => tile.noiseTranslate(400,t))
   tiles.map(tile => tile.show(t))
   
-  t+=0.005
+  t+=0.007
 }
 
 function createTiles(){
@@ -77,11 +81,11 @@ function createTiles(){
   for(let y=border; y<height-border; y+=res){
     for(let x=border; x<width-border; x+=res){
       tiles.push(new Tile(x,y))
-     
     }
    
   }
-  
+  clear()
+ 
 }
 
 

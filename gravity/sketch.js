@@ -17,7 +17,7 @@ function windowResized(){
  // colour palette from coolors.co URL
 const palette = createPalette('https://coolors.co/palette/eddcd2-fff1e6-fde2e4-fad2e1-c5dedd-dbe7e4-f0efeb-d6e2e9-bcd4e6-99c1de');
 let canvas;
-let numberOfBalls = 300
+let numberOfBalls = 400
 
 let balls = []
 
@@ -27,23 +27,24 @@ function setup() {
   windowResized()
   canvas.style('z-index','-1') // behind html elements
  
-  fill(palette[9])
+  fill(0)
   stroke(palette[1])
   colorMode(HSB,100)
+  background(0,0,0)
 
 
     /////////////////create Balls/////////////////
   for(let i=0; i<= numberOfBalls; i++){
-    let x = width/2+cos(TWO_PI/numberOfBalls*i)*500
-    let y = height/2+sin(TWO_PI/numberOfBalls*i)*500
-    balls.push(new Ball(x,y,20)); //we create our b instance of Ball;
+    let x = width/2+cos(TWO_PI/numberOfBalls*i)*300
+    let y = height/2+sin(TWO_PI/numberOfBalls*i)*300
+    balls.push(new Ball(x,y,20,map(i,0,numberOfBalls,0,100))); //we create our b instance of Ball;
   }
 }
 
 let margin = 200
 
 function draw() {
-  background(100,0,100,5);
+  //background(100,0,0,0.5);
   for(ball in balls){
     balls[ball].update(); 
     balls[ball].display();
@@ -51,12 +52,13 @@ function draw() {
 }
 
 class Ball {
-  constructor(x,y,d) {
+  constructor(x,y,d,c) {
     this.pos = createVector(x,y);
     this.velocity = createVector();
     this.acc = createVector()
-    this.acc.setMag(0.1) 
+    this.acc.setMag(0.2) 
     this.dia = d
+    this.color = c
   }
   
   update() {
@@ -80,6 +82,7 @@ class Ball {
 
   display() {
     // Draws the circle
+    stroke(this.color,50,100)
     circle(this.pos.x, this.pos.y, this.dia);
   }
 }
