@@ -1,36 +1,26 @@
 
-let mult = 0.0008//noise density
+let mult = 0.002//noise density
 let zoff = 0
 let rotat = 3
 
+function windowResized() {
+  resizeCanvas(windowWidth/2,windowHeight/8*7);
+}
+
 function setup() {
-
-  createCanvas(2970, 4200,SVG);
+  const cnv = createCanvas(windowWidth/2,windowHeight/8*7);
+  cnv.parent('sketch-container')
+  cnv.style('border-radius: 1em;')
   angleMode(DEGREES)    
-
-  strokeWeight(0.5);
+  strokeWeight(0.3);
   stroke(0); 
   noFill();
-  background(240);
-  //translate(width/2,height/2)
+  background('#FFFFFF');
   }
   
 function draw() {
-//translate(width/2,height/2)
-spots(6,9,180)
-// for(let i = 0; i<360;i+=60){
-// ring(cos(i)*800,sin(i)*800,400,0,0.5)
-// }
-// ring(0,0,400,0,3)
-
-// spinny thing
-//-----------------------------------
-// for(let r=0; r<rotat; r++){
-//   rotate(360/rotat)
-// for (let i=1; i<3; i++){
-// ring(0,0,100*i,0,3-i/4)}
-// stroke(40*r,40*i,10)
-//}
+background('#FFFFFF');
+spots(3,5,80)
 noLoop()
 
 }
@@ -61,7 +51,6 @@ function field(){
   }
 }
 
-
 function ring(xp,yp,rad,n,steps){
  
     for (x=0; x<360; x+=steps){
@@ -70,7 +59,7 @@ function ring(xp,yp,rad,n,steps){
      
       beginShape()
       
-      for( i = 0; i<40; i++){                                    //draws one whole line at a time
+      for( i = 0; i<60; i++){                                    //draws one whole line at a time
         angle = map(noise(p.x * mult ,p.y * mult,n),0,1,0,360)     //map noise at vector to angle 
         p.add(createVector(cos(angle)*5,sin(angle)*5))        //add angle vector to current
         vertex(p.x,p.y)
@@ -121,17 +110,6 @@ function spiral(){
     pop()
 }
     
-
-
-function keyTyped() {
-    if (key === 's') {
-  save("mySVG.svg"); // give file name
-  print("saved svg");
-  noLoop(); // we just want to export once
-  }
-}
-
-
 function rota(){
   ring(0,100,50,zoff)
 rotate(60)
