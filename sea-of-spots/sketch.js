@@ -58,7 +58,7 @@ function setup() {
   //noStroke()
   fill(palette[9])
   colorMode(HSB,100)
-  //blendMode(MULTIPLY)
+  ///blendMode(OVERLAY)
   //background(0);
   
 }
@@ -66,13 +66,13 @@ function setup() {
 function draw() {
   translate(-200,-300)
   //clear()
-  background(100,0,255,0.);
+  background(100,0,100,0.8);
   
   tiles.map(tile => tile.size = 320*noise(tile.x/noiseDiv,tile.y/noiseDiv,t)-50)
   tiles.map(tile => tile.noiseTranslate(400,t))
   tiles.map(tile => tile.show(t))
-  
   t+=0.007
+
 }
 
 function createTiles(){
