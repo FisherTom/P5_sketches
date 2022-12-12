@@ -27,18 +27,24 @@ function setup() {
   windowResized()
   canvas.style('z-index','-1') // behind html elements
  
-  fill(100,50,50)
+  fill(0)
   stroke(palette[1])
   colorMode(HSB,100)
-  blendMode(MULTIPLY)
+
+
+    /////////////////create Balls/////////////////
+  for(let i=0; i<= numberOfBalls; i++){
+    let x = width/2+cos(TWO_PI/numberOfBalls*i)*600
+    let y = height/2+sin(TWO_PI/numberOfBalls*i)*600
+    balls.push(new Ball(x,y,20,map(i,0,numberOfBalls,0,100))); //we create our b instance of Ball;
+  }
 }
 
 let margin = 200
 
 function draw() {
-  //background(0,0,1000,10);
-  clear()
-  circle(width/2,height/2,200)
+  background(0,0,100,0);
+
 
 
   for(ball in balls){
@@ -47,28 +53,24 @@ function draw() {
   }
 }
 
-function mousePressed() {
-  balls.push(new Ball(mouseX,mouseY,random(10,100),0));
-  // prevent default
-  return false;
-}
+
 
 class Ball {
   constructor(x,y,d,c) {
     this.pos = createVector(x,y);
-    this.velocity = createVector(random(-5,5),random(-5,5));
+    this.velocity = createVector(random(-1,1),random(-1,1));
     this.acc = createVector()
-    this.acc.setMag(0.1) 
+    this.acc.setMag(0.15) 
     this.dia = d
     this.color = c
   }
   
   update() {
-    let mouse = createVector(width/2,height/2); // get mouse vector     *********OVERRIDE*******
+    let mouse = createVector(mouseX,mouseY); // get mouse vector     *********OVERRIDE*******
     this.acc = p5.Vector.sub(mouse, this.pos) // acceleration = mouse - position
     this.acc.setMag(0.06)          // limit acceleration changes responsiveness
     this.velocity.add(this.acc)           //velocity = velocity + acceleration
-    this.velocity.limit(20)               // limmit max velocity
+    this.velocity.limit(6)               // limmit max velocity
     this.pos.add(this.velocity);    // position = position +velocity
 
     
