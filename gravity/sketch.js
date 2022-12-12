@@ -17,7 +17,7 @@ function windowResized(){
  // colour palette from coolors.co URL
 const palette = createPalette('https://coolors.co/palette/eddcd2-fff1e6-fde2e4-fad2e1-c5dedd-dbe7e4-f0efeb-d6e2e9-bcd4e6-99c1de');
 let canvas;
-let numberOfBalls = 400
+let numberOfBalls = 500
 
 let balls = []
 
@@ -30,13 +30,12 @@ function setup() {
   fill(0)
   stroke(palette[1])
   colorMode(HSB,100)
-  background(0,0,0)
 
 
     /////////////////create Balls/////////////////
   for(let i=0; i<= numberOfBalls; i++){
-    let x = width/2+cos(TWO_PI/numberOfBalls*i)*300
-    let y = height/2+sin(TWO_PI/numberOfBalls*i)*300
+    let x = width/2+cos(TWO_PI/numberOfBalls*i)*600
+    let y = height/2+sin(TWO_PI/numberOfBalls*i)*600
     balls.push(new Ball(x,y,20,map(i,0,numberOfBalls,0,100))); //we create our b instance of Ball;
   }
 }
@@ -44,7 +43,7 @@ function setup() {
 let margin = 200
 
 function draw() {
-  //background(100,0,0,0.5);
+  background(0,0,1000,0);
   for(ball in balls){
     balls[ball].update(); 
     balls[ball].display();

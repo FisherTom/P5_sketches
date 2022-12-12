@@ -43,6 +43,12 @@ main:hover{
   box-shadow: 3px 3px 8px 0px #535353;
 }
 
+#page-description{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
 .sketch-description{
 margin: 1em;
 flex: 1;
