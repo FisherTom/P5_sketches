@@ -39,7 +39,7 @@ function draw() {
   //clear()
   fill(50)
   noStroke()
-  circle(width/2,height/2,10)
+  circle(width/2,height/2,30)
 
 
   for(ball in balls){
