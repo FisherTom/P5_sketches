@@ -29,13 +29,13 @@ function setup() {
   fill(100,50,50)
   noStroke()
   colorMode(HSB,100)
-  //blendMode(MULTIPLY)
+  blendMode(MULTIPLY)
 }
 
 let margin = 200
 
 function draw() {
-  background(0,0,0,40);
+  background(0,0,100);
   //clear()
   fill(50)
   noStroke()
@@ -49,7 +49,7 @@ function draw() {
 }
 
 function mousePressed() {
-  balls.push(new Ball(mouseX,mouseY,random(5,50),0));
+  balls.push(new Ball(mouseX,mouseY,random(5,100),0));
   // prevent default
   return false;
 }
@@ -76,11 +76,11 @@ class Ball {
 
   display() {
     // Draws the circle
-    fill(this.color,50,100)
+    fill(this.color,50,100,30)
     noStroke()
     circle(this.pos.x, this.pos.y, this.dia);
     stroke(this.color,50,100)
-    line(this.pos.x,this.pos.y,this.centerOfGravity.x,this.centerOfGravity.y)
+    //line(this.pos.x,this.pos.y,this.centerOfGravity.x,this.centerOfGravity.y)
   }
 }
 
