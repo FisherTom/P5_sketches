@@ -23,35 +23,29 @@ let balls = []
 function setup() {
   canvas = createCanvas(windowWidth,windowHeight)
   canvas.position(0,0)
-  windowResized()
   canvas.style('z-index','-1') // behind html elements
- 
-  fill(100,50,50)
   noStroke()
   colorMode(HSB,100)
   blendMode(MULTIPLY)
 }
 
-let margin = 200
-
 function draw() {
-  background(0,0,100);
-  //clear()
+  background(0,0,100,10);
   fill(50)
   noStroke()
   circle(width/2,height/2,30)
 
-
   for(ball in balls){
-    balls[ball].update(); 
-    balls[ball].display();
+    if(balls[ball].alive === true){
+      balls[ball].update(); 
+      balls[ball].display();
+    }
   }
 }
 
 function mousePressed() {
-  balls.push(new Ball(mouseX,mouseY,random(5,100),0));
-  // prevent default
-  return false;
+  balls.push(new Ball(mouseX,mouseY,random(5,100),0)); //create a new ball and push to ball array when mouse pressed
+  return false; // prevent default
 }
 
 class Ball {
@@ -63,24 +57,30 @@ class Ball {
     this.dia = d
     this.color = random(0,100)
     this.centerOfGravity = createVector(width/2,height/2);
+    this.alive = true
   }
   
   update() {
-   
     this.acc = p5.Vector.sub(this.centerOfGravity, this.pos) // acceleration = mouse - position
     this.acc.setMag(0.06)          // limit acceleration changes responsiveness
     this.velocity.add(this.acc)           //velocity = velocity + acceleration
     this.velocity.limit(20)               // limmit max velocity
     this.pos.add(this.velocity);    // position = position +velocity
+    this.dia -=0.2                  //shrink the diameter of the ball
+
+    if(this.dia <= 0){              // if diameter gets to 0 no longer update or draw the ball
+      this.alive = false
+      }
   }
 
   display() {
-    // Draws the circle
-    fill(this.color,50,100,30)
-    noStroke()
-    circle(this.pos.x, this.pos.y, this.dia);
-    stroke(this.color,50,100)
-    //line(this.pos.x,this.pos.y,this.centerOfGravity.x,this.centerOfGravity.y)
+
+      fill(this.color,50,100,30)
+      noStroke()
+      circle(this.pos.x, this.pos.y, this.dia);
+      stroke(this.color,50,100)
+      //line(this.pos.x,this.pos.y,this.centerOfGravity.x,this.centerOfGravity.y)
+    
   }
 }
 

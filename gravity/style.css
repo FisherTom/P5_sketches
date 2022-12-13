@@ -15,6 +15,7 @@ canvas {
 }
 #title{
   margin-top: 20em;
+  
   display: flex;
   height: 100vh;
  flex-direction: column;
@@ -30,4 +31,5 @@ h1{
   color: white;
   font-size: 10em;
   mix-blend-mode: exclusion;
+  margin-right: 0.6em;
 }
