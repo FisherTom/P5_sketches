@@ -62,12 +62,12 @@ class Ball {
   }
 
   update() {
-    this.acc = p5.Vector.sub(this.centerOfGravity, this.pos); // acceleration = mouse - position
+    this.acc = p5.Vector.sub(this.centerOfGravity, this.pos); // acceleration = center of grav(change to mouse) - position
     this.acc.setMag(0.06); // limit acceleration changes responsiveness
     this.velocity.add(this.acc); //velocity = velocity + acceleration
     this.velocity.limit(20); // limmit max velocity
     this.pos.add(this.velocity); // position = position +velocity
-    this.dia -= 0.2; //shrink the diameter of the ball
+    this.dia -= 0; //shrink the diameter of the ball
 
     if (this.dia <= 0) {
       // if diameter gets to 0 no longer update or draw the ball

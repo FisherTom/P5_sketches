@@ -1,16 +1,17 @@
 const noff = 300; //xy pos/ noff = position in noise space
 let t = 0;
-let circleRad = 250;
-let div = 0.017; //twoPI/ div = number of lines in the circle
+let circleRad = 100;
+let div = 0.02; //twoPI/ div = number of lines in the circle
 let lengths = [];
 
 function windowResized() {
-  resizeCanvas(windowWidth, windowHeight);
+  resizeCanvas((windowWidth / 10) * 8, (windowHeight / 10) * 8);
+  canvas.position(windowWidth / 10, windowHeight / 10);
 }
 
 function setup() {
-  canvas = createCanvas(windowWidth, windowHeight);
-  canvas.position(0, 0);
+  canvas = createCanvas((windowWidth / 10) * 8, (windowHeight / 10) * 8);
+
   windowResized();
   canvas.style("z-index", "-1"); // behind html elements
 
@@ -25,6 +26,7 @@ function setup() {
 }
 
 function draw() {
+  circleRad = width / 5;
   background(248, 248, 255);
   n = 0; //counter for line length
   for (let i = 0; i <= TWO_PI; i += div) {

@@ -1,102 +1,104 @@
-html, body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  background-color: whitesmoke;
+html,
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  background-color: rgb(36, 33, 33);
   display: flex;
   flex-direction: column;
   align-items: center;
   box-sizing: border-box;
 }
 
-h1{
-  font-size: 4em;
+h1 {
+  font-size: 3em;
   margin: 0.25em;
-  font-weight: normal;
+  font-weight: 500;
 }
 
-h2{
+h2 {
   font-weight: lighter;
   font-size: x-large;
   margin: 0;
-  
 }
 
-header{
-display: flex;
-flex-direction: column;
-align-items: center;
-text-align: center;
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
-main{
+main {
   flex: 1;
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  background-color: rgb(255, 255, 255);
+  background-color: rgba(255, 255, 255, 0.2);
   margin: 0.5em;
-  border-radius: 2em;
+  border-radius: 0em;
   width: 75%;
-  box-shadow: 1px 1px 4px 0px #535353;
+
+  color: rgb(230, 191, 225);
 }
 
-main:hover{
-  box-shadow: 3px 3px 8px 0px #535353;
-}
-
-#page-description{
+#page-description {
   display: flex;
   justify-content: center;
-  text-align: center;
+  max-width: 500px;
+  background-color: rgb(245, 245, 245, 0);
+  box-shadow: 0;
 }
 
-.sketch-description{
-margin: 1em;
-flex: 1;
-min-width: 150px;
+.sketch-description {
+  text-shadow: 0 0 6px black;
+
+  margin: 1em;
+  flex: 1;
+  min-width: 150px;
+}
+.sketch-description > h2 {
+  font-size: 2em;
 }
 
-.sketch-description>p{
+.sketch-description > p {
   margin-top: 1em;
   margin-bottom: 2em;
 }
 
-#page-intro{
-margin: 2em;
-}
-
-.gallery-img{
+.gallery-img {
   width: 20em;
   /* margin: 3em; */
 }
 
-#hero-img{
-width: 23em;
-border-radius: 1em;
-margin: 1em;
+#hero-img {
+  width: 15em;
+
+  margin: 1em;
 }
 
-#gallery>img{
+#gallery > img {
   margin: 2em;
 }
 
-#sketch-menu{
+#sketch-menu {
   margin: 3em;
   margin-left: 0;
 }
 
-.sketch-menu-item, a{
+.sketch-menu-item,
+a {
   font-size: x-large;
   font-weight: 300;
   text-decoration: none;
-  color: black
+  color: black;
 }
 
-.sketch-menu-item{
+.sketch-menu-item {
   text-decoration: none;
-  color: rgb(255, 0, 221)
+  color: rgb(230, 191, 225);
 }
 
-#social-links>img{
+#social-links > img {
   width: 3em;
   margin: 2em;
 }
@@ -111,11 +113,10 @@ margin: 1em;
   font-size: 14px;
   background: #000000;
   text-decoration: none;
-  
 }
 
 .sketch-link:hover {
-  background: #ff14ff;
-  border-color: #ff14ff ;
+  color: rgb(230, 191, 225);
+  box-shadow: 3px 3px 0 rgb(230, 191, 225);
   text-decoration: none;
 }

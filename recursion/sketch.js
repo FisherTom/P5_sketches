@@ -1,3 +1,12 @@
+const button = document.getElementById("plant-tree");
+button.addEventListener("click", () => {
+  plantTree();
+});
+
+function plantTree() {
+  redraw();
+}
+
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
 }
@@ -9,15 +18,18 @@ function setup() {
   canvas.style("z-index", "-1"); // behind html elements
 
   strokeWeight(1);
-  stroke(255);
+  stroke(random(60, 200), random(60, 200), random(60, 200));
   noFill();
-  background(0);
+  background(255);
   angleMode(DEGREES);
+  blendMode(MULTIPLY);
 }
 
 function draw() {
-  translate(width / 2, height);
-  branch(200);
+  translate(random(width), height);
+  background(255, 255, 255, 20);
+  branch(random(60, 200));
+  stroke(random(30, 80), random(60, 255), random(60, 150));
   noloop();
 }
 
