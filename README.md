@@ -1,7 +1,6 @@
 # P5_sketches 🌈
 
 This is a library of _sketches_ made using the P5.js library. Each sketch has a live demo that can be viewed [**Here**](https://fishertom.github.io/P5_sketches/).
-I created these while learning Javascript and as such the code varies in quality.
 
 ## Sketch Descriptions
 
